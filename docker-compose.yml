@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: teste
+      POSTGRES_DB: prontuarioDB
       POSTGRES_USER: userTeste
       POSTGRES_PASSWORD: 123
     ports:
