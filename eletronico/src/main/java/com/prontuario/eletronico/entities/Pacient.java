@@ -9,15 +9,15 @@ import java.util.Date;
 
 @Entity
 public class Pacient {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
-    //? Não sei com certeza se os seguintes atributos serão String ou Date
-    //- data_nascimento:Date
-    //- data_atendimento:String
-    //- horario_atendimento:String
+    // ? Não sei com certeza se os seguintes atributos serão String ou Date
+    // - data_nascimento:Date
+    // - data_atendimento:String
+    // - horario_atendimento:String
 
     private String nome;
     private Date data_nascimento;
@@ -38,11 +38,41 @@ public class Pacient {
     private String medicacao_em_uso;
     private String evolucao_enfermagem;
 
-    public void setId(Long id) {
+    
+
+    public Pacient(Integer id, String nome, Date data_nascimento, String curso, String colaborador, String externo,
+            String contatos, String altura, Date data_atendimento, String horario_atendimento, String alergias,
+            String pressao_arterial, String temperatura, String dor, String saturacao, String glicemia_capilar,
+            String comorbidades, String medicacao_em_uso, String evolucao_enfermagem) {
+        this.id = id;
+        this.nome = nome;
+        this.data_nascimento = data_nascimento;
+        this.curso = curso;
+        this.colaborador = colaborador;
+        this.externo = externo;
+        this.contatos = contatos;
+        this.altura = altura;
+        this.data_atendimento = data_atendimento;
+        this.horario_atendimento = horario_atendimento;
+        this.alergias = alergias;
+        this.pressao_arterial = pressao_arterial;
+        this.temperatura = temperatura;
+        this.dor = dor;
+        this.saturacao = saturacao;
+        this.glicemia_capilar = glicemia_capilar;
+        this.comorbidades = comorbidades;
+        this.medicacao_em_uso = medicacao_em_uso;
+        this.evolucao_enfermagem = evolucao_enfermagem;
+    }
+
+    public Pacient() {
+    }
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -164,5 +194,29 @@ public class Pacient {
 
     public void setEvolucao_enfermagem(String evolucao_enfermagem) {
         this.evolucao_enfermagem = evolucao_enfermagem;
+    }
+
+    public Date getData_nascimento() {
+        return data_nascimento;
+    }
+
+    public void setData_nascimento(Date data_nascimento) {
+        this.data_nascimento = data_nascimento;
+    }
+
+    public Date getData_atendimento() {
+        return data_atendimento;
+    }
+
+    public void setData_atendimento(Date data_atendimento) {
+        this.data_atendimento = data_atendimento;
+    }
+
+    public String getHorario_atendimento() {
+        return horario_atendimento;
+    }
+
+    public void setHorario_atendimento(String horario_atendimento) {
+        this.horario_atendimento = horario_atendimento;
     }
 }
