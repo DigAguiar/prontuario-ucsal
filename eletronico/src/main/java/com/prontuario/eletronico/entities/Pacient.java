@@ -9,8 +9,9 @@ import java.util.Date;
 
 @Entity
 public class Pacient {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     //? Não sei com certeza se os seguintes atributos serão String ou Date

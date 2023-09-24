@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToMany;
 @Entity
 public class UserModel implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String email;
     private String password;

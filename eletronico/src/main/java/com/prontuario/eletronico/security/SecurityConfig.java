@@ -16,15 +16,14 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http.csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((authorize) -> {
                     authorize.requestMatchers("/").hasRole("admin");
                     authorize.requestMatchers("/cadastro").permitAll();
                     authorize.requestMatchers(HttpMethod.POST,"/cadastro").permitAll();
                     authorize.anyRequest().authenticated();
                 }).formLogin(Customizer.withDefaults())
-                .exceptionHandling()
-                 .accessDeniedPage("/error/403");
+                .exceptionHandling((exception) -> exception.accessDeniedPage("/error/403"));
         return http.build();
     }
 
