@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="/cadastro"> <!-- Adicione o atributo 'action' para indicar para onde o formulário deve ser enviado -->
+        <input name="email" type="text" placeholder="email">
+        <input name="password" type="password" placeholder="password">
+        <select name="role" id="role">
+            <option value="admin">Admin</option>
+            <option value="enfermeira">Enfermagem</option>
+            <option value="recepcionista">Recepcionista</option>
+          </select>
+        <button type="submit">Salvar</button> <!-- Adicione 'type="submit"' ao botão para enviar o formulário -->
+    </form>
+</body>
+</html>
