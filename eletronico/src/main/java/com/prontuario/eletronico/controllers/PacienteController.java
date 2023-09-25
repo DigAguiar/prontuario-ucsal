@@ -18,7 +18,7 @@ import com.prontuario.eletronico.repositories.UserRepository;
 
 @Controller
 public class PacienteController {
-    
+
     @Autowired
     private PacienteRepository pacienteRepository;
 
@@ -29,32 +29,31 @@ public class PacienteController {
     private UserRepository userRepository;
 
     @GetMapping("/cadastarDados")
-    public String cadastarDadosPessoais(){
+    public String cadastarDadosPessoais() {
         return "paciente/cadastroDados";
     }
 
     @PostMapping("/cadastarDados")
-    public String cadastarDadosPessoaisPOST(@ModelAttribute CadastroDadosPessoaisDTO request){
-        
+    public String cadastarDadosPessoaisPOST(@ModelAttribute CadastroDadosPessoaisDTO request) {
+
         var paciente = new Pacient();
         var log = new Log();
         var user = new UserModel();
-        
+
         paciente.setNome("Neymar");
         paciente = pacienteRepository.save(paciente);
-        
+
         // userLogged?
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
- 
+
         user = userRepository.findByEmail(username).get();
-        
-        
+
         log.setIdUser(user.getId());
-        log.setIdPaciente(paciente.getId()); 
+        log.setIdPaciente(paciente.getId());
         log.setAction("criar dados pessoais");
         logRepository.save(log);
-        
+
         return "paciente/cadastroDados";
     }
 }

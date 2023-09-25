@@ -40,7 +40,7 @@ public class UserService {
         listRoles.add(result);
         userModel.setRoles(listRoles);
 
-        UserModel user = userRepository.save(userModel);
+        userRepository.save(userModel);
 
         return "ok";
     }
