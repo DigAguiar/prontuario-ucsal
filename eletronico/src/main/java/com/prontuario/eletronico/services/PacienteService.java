@@ -1,5 +1,7 @@
 package com.prontuario.eletronico.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,6 +29,11 @@ public class PacienteService {
 
     @Autowired
     private UserRepository userRepository;
+
+    public List<Pacient> findAll(){
+        var lista = pacienteRepository.findAll();
+        return lista;
+    }
 
     public void cadastrarDadosPessoais(CadastroDadosPessoaisDTO request){
         var paciente = new Pacient();
