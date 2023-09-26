@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <img src="/assets/ucsal.svg" alt="Logo Ucsal" />
+        <div class="small-container">
+          <img src="/assets/bell.svg" alt="Sino Notificação" width="30" height="30"/>
+          <img src="/assets/profile.svg" alt="Perfil" width="50" height="50" />
+        </div>
+      </div>
+    </header>
     <h1>Aqui</h1>
     <ul>
-        <li th:each="paciente : ${pacientes}">
-            <span th:text="${paciente.nome}"></span>
-        </li>
+      <li th:each="paciente : ${pacientes}">
+        <span th:text="${paciente.nome}"></span>
+      </li>
     </ul>
-</body>
+  </body>
 </html>

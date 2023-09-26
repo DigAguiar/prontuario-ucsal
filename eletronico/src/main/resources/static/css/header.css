@@ -1,0 +1,19 @@
+header {
+ background: #1F365C;
+ width: 100%;
+}
+
+.container {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ width: 100%;
+}
+
+.small-container {
+ display: flex;
+ align-items: center;
+ gap: 50px;
+ margin-right: 35px;
+}
