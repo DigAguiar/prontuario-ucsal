@@ -18,13 +18,13 @@ public class UserController {
 
     @GetMapping("/cadastro")
     public String createUserPage(){
-        return "CreateUser";
+        return "user/CreateUser";
     } 
 
     @PostMapping("/cadastro")
     public String createUserForm(@ModelAttribute UserModel userModel, String role) throws UserAlreadyExistsException{
         userService.saveUser(userModel, role);
-        return "CreateUser";
+        return "user/CreateUser";
     } 
 
 }

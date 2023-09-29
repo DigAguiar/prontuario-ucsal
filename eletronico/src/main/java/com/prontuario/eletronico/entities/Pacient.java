@@ -5,8 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.util.Date;
-
 @Entity
 public class Pacient {
 
@@ -20,13 +18,14 @@ public class Pacient {
     // - horario_atendimento:String
 
     private String nome;
-    private Date data_nascimento;
+    private String email;
+    private String data_nascimento;
     private String curso;
     private String colaborador;
     private String externo;
     private String contatos;
     private String altura;
-    private Date data_atendimento;
+    private String data_atendimento;
     private String horario_atendimento;
     private String alergias;
     private String pressao_arterial;
@@ -37,15 +36,14 @@ public class Pacient {
     private String comorbidades;
     private String medicacao_em_uso;
     private String evolucao_enfermagem;
-
     
-
-    public Pacient(Integer id, String nome, Date data_nascimento, String curso, String colaborador, String externo,
-            String contatos, String altura, Date data_atendimento, String horario_atendimento, String alergias,
-            String pressao_arterial, String temperatura, String dor, String saturacao, String glicemia_capilar,
-            String comorbidades, String medicacao_em_uso, String evolucao_enfermagem) {
+    public Pacient(Integer id, String nome, String email, String data_nascimento, String curso, String colaborador,
+            String externo, String contatos, String altura, String data_atendimento, String horario_atendimento,
+            String alergias, String pressao_arterial, String temperatura, String dor, String saturacao,
+            String glicemia_capilar, String comorbidades, String medicacao_em_uso, String evolucao_enfermagem) {
         this.id = id;
         this.nome = nome;
+        this.email = email;
         this.data_nascimento = data_nascimento;
         this.curso = curso;
         this.colaborador = colaborador;
@@ -196,19 +194,19 @@ public class Pacient {
         this.evolucao_enfermagem = evolucao_enfermagem;
     }
 
-    public Date getData_nascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(Date data_nascimento) {
+    public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 
-    public Date getData_atendimento() {
+    public String getData_atendimento() {
         return data_atendimento;
     }
 
-    public void setData_atendimento(Date data_atendimento) {
+    public void setData_atendimento(String data_atendimento) {
         this.data_atendimento = data_atendimento;
     }
 
@@ -218,5 +216,13 @@ public class Pacient {
 
     public void setHorario_atendimento(String horario_atendimento) {
         this.horario_atendimento = horario_atendimento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
