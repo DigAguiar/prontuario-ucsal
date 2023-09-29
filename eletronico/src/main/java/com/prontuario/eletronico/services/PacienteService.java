@@ -1,5 +1,7 @@
 package com.prontuario.eletronico.services;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +41,17 @@ public class PacienteService {
         var paciente = new Pacient();
         var log = new Log();
         var user = new UserModel();
+        var dataAtual = new Date(); // Obtém a data atual
+        SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = formatoData.format(dataAtual); // Formata a data como string
 
-        paciente.setNome("Neymar");
+
+        paciente.setNome("Joao");
+        paciente.setColaborador("TRUE");
+        paciente.setCurso("eng software");
+        paciente.setData_nascimento(dataFormatada);
+        paciente.setData_atendimento(dataFormatada);
+        paciente.setContatos("(71)98686-7971");
         paciente = pacienteRepository.save(paciente);
 
         // userLogged?
