@@ -5,9 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Entity
 public class Pacient {
 
@@ -21,6 +18,7 @@ public class Pacient {
     // - horario_atendimento:String
 
     private String nome;
+    private String email;
     private String data_nascimento;
     private String curso;
     private String colaborador;
@@ -38,15 +36,14 @@ public class Pacient {
     private String comorbidades;
     private String medicacao_em_uso;
     private String evolucao_enfermagem;
-
     
-
-    public Pacient(Integer id, String nome, String data_nascimento, String curso, String colaborador, String externo,
-            String contatos, String altura, String data_atendimento, String horario_atendimento, String alergias,
-            String pressao_arterial, String temperatura, String dor, String saturacao, String glicemia_capilar,
-            String comorbidades, String medicacao_em_uso, String evolucao_enfermagem) {
+    public Pacient(Integer id, String nome, String email, String data_nascimento, String curso, String colaborador,
+            String externo, String contatos, String altura, String data_atendimento, String horario_atendimento,
+            String alergias, String pressao_arterial, String temperatura, String dor, String saturacao,
+            String glicemia_capilar, String comorbidades, String medicacao_em_uso, String evolucao_enfermagem) {
         this.id = id;
         this.nome = nome;
+        this.email = email;
         this.data_nascimento = data_nascimento;
         this.curso = curso;
         this.colaborador = colaborador;
@@ -219,5 +216,13 @@ public class Pacient {
 
     public void setHorario_atendimento(String horario_atendimento) {
         this.horario_atendimento = horario_atendimento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

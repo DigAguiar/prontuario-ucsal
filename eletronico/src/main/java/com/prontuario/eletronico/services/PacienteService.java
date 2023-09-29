@@ -32,6 +32,9 @@ public class PacienteService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private EmailService emailService;
+
     public List<Pacient> findAll(){
         var lista = pacienteRepository.findAll();
         return lista;
@@ -52,7 +55,11 @@ public class PacienteService {
         paciente.setData_nascimento(dataFormatada);
         paciente.setData_atendimento(dataFormatada);
         paciente.setContatos("(71)98686-7971");
+        paciente.setEmail("diogo.ramos@ucsal.edu.br");
         paciente = pacienteRepository.save(paciente);
+
+        //send email
+        emailService.sendEmail(paciente);
 
         // userLogged?
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
