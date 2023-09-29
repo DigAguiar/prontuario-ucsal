@@ -22,8 +22,12 @@ public class SecurityConfig {
                     authorize.requestMatchers("/cadastro").permitAll();
                     authorize.requestMatchers(HttpMethod.POST,"/cadastro").permitAll();
                     authorize.anyRequest().authenticated();
-                }).formLogin(Customizer.withDefaults())
+                }).formLogin(form -> form
+                        .loginPage("/login")
+                        .permitAll())
                 .exceptionHandling((exception) -> exception.accessDeniedPage("/error/403"));
+
+
         return http.build();
     }
 
@@ -31,4 +35,6 @@ public class SecurityConfig {
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+
 }
