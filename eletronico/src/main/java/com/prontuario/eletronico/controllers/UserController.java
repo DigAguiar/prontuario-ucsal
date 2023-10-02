@@ -12,19 +12,19 @@ import com.prontuario.eletronico.services.UserService;
 
 @Controller()
 public class UserController {
-    
+
     @Autowired
     private UserService userService;
 
-    @GetMapping("/cadastro")
-    public String createUserPage(){
+    @GetMapping("/cadastroUser")
+    public String createUserPage() {
         return "user/CreateUser";
-    } 
+    }
 
-    @PostMapping("/cadastro")
-    public String createUserForm(@ModelAttribute UserModel userModel, String role) throws UserAlreadyExistsException{
+    @PostMapping("/cadastroUser")
+    public String createUserForm(@ModelAttribute UserModel userModel, String role) throws UserAlreadyExistsException {
         userService.saveUser(userModel, role);
         return "user/CreateUser";
-    } 
+    }
 
 }

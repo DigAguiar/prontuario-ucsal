@@ -53,89 +53,66 @@
     <section>
         <form method="post" action="/cadastro">
             <center>
-                <p class="title">Dados do Paciente</p>
+                <p class="title">Cadastro Ficha Tecnica</p>
                 <fieldset>
                     <div class="col-md-6">
-                        <input placeholder="Nome" name="nome" type="text" class="form-control" id="nome" maxlength="50"
-                            required>
+                        <input placeholder="Alergias" name="nome" type="text" class="form-control" id="nome"
+                            maxlength="50" required>
                     </div>
                     <div class="col-md-6">
-                        <input placeholder="Email" name="email" type="email" class="form-control" id="email"
+                        <input placeholder="Exames Fisicaos" name="email" type="email" class="form-control" id="email"
                             maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-5">
-                        <input placeholder="Telefone" type="text" class="form-control" id="telefone" maxlength="50"
+                        <input placeholder="Altura" type="text" class="form-control" id="telefone" maxlength="50"
                             required>
                     </div>
                 </fieldset>
+                <h3>Sinais vitais</h3>
                 <fieldset>
-                    <div class="col-md-5">
-                        <input placeholder="Curso" type="text" class="form-control" id="telefone" maxlength="50"
-                            required>
+                    <div class="col-md-6">
+                        <input name="Frequência Respiratória - FR" id="Frequência Respiratória - FR" type="text"
+                            class="form-control" placeholder="Frequência Respiratória - FR" maxlength="15" required>
                     </div>
-                    <label>Data Nascimento</label>
-                    <div class="col-md-5">
-                        <input placeholder="Data Nascimento" type="date" class="form-control" id="data_nascimento"
-                            maxlength="50" required>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="col-md-5">
-                        <input placeholder="Colaborador" type="text" class="form-control" id="Colaborador"
-                            maxlength="50" required>
-                    </div>
-                    <div class="col-md-5">
-                        <input placeholder="Externo" type="text" class="form-control" id="Externo" maxlength="50"
-                            required>
+                    <div class="col-md-6">
+                        <input name="Pressão Arterial - PA" id="local" type="text" class="form-control"
+                            placeholder="Pressão Arterial - PA" maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-6">
-                        <input name="cep" id="cep" type="text" class="form-control" placeholder="CEP" maxlength="15"
-                            required>
-                    </div>
-                    <div class="col-md-6">
-                        <input name="local" id="local" type="text" class="form-control" placeholder="Endereço"
-                            maxlength="50" required>
+                        <input name="Frequência Cardíaca - FC" id="Frequência Cardíaca - FC" type="text"
+                            class="form-control" placeholder="Frequência Cardíaca - FC" maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-6">
-                        <input name="cidade" id="cidade" type="text" class="form-control" placeholder="cidade"
-                            maxlength="50" required>
+                        <input name="Temperatura" id="Temperatura" type="text" class="form-control"
+                            placeholder="Temperatura" maxlength="50" required>
                     </div>
-                </fieldset>
-                <fieldset>
                     <div class="col-md-6">
-                        <input name="bairro" id="bairro" type="text" class="form-control" placeholder="Bairro"
+                        <input name="Saturação" id="Saturação" type="text" class="form-control" placeholder="Saturação"
                             maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-2">
-                        <input placeholder="Número" type="text" class="form-control" id="numero" maxlength="50"
-                            required>
+                        <input placeholder="Dor" type="text" class="form-control" id="Dor" maxlength="50" required>
                     </div>
-                </fieldset>
-                <p class="title">Dados do Agendamento</p>
-                <div id="emailHelp" class="form-text">Serão confimardos agendamentos apenas de Segunda à Sábado das
-                    8:00 às 17:00</div>
-                <fieldset>
-                    <div id="container" class="col-md-4">
-                        <label for="formGroupExampleInput2" class="form-label">Data</label>
-                        <input name="data" type="date" class="form-control" id="data" required>
-                    </div>
+                    <div class="col-md-2">
+                        <input placeholder="Glicemia Capilar" type="text" class="form-control" id="Dor" maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
-                    <div id="container" class="col-md-2">
-                        <label for="formGroupExampleInput2" class="form-label">Hora</label>
-                        <input name="hora" type="time" class="form-control" id="hora" required>
+                    <div class="col-md-2">
+                        <input placeholder="COMORBIDADES" type="text" class="form-control" id="COMORBIDADES" maxlength="50" required>
+                    </div>
+                    <div class="col-md-2">
+                        <input placeholder="Glicemia Capilar" type="text" class="form-control" id="Glicemia Capilar" maxlength="50" required>
                     </div>
                 </fieldset>
-
                 <fieldset>
                     <div>
                         <button id="bt" type="submit" class="btn" onclick="complete()">Agendar</button>

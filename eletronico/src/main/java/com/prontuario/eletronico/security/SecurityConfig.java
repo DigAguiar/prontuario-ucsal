@@ -3,7 +3,6 @@ package com.prontuario.eletronico.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,16 +17,16 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((authorize) -> {
-                    authorize.requestMatchers("/").hasRole("admin");
-                    authorize.requestMatchers("/cadastro").permitAll();
-                    authorize.requestMatchers(HttpMethod.POST,"/cadastro").permitAll();
+                    authorize.requestMatchers("/cadastroUser").hasRole("admin");
+                    authorize.requestMatchers("/css/**").permitAll();
+                    authorize.requestMatchers("/assets/**").permitAll();
+                    authorize.requestMatchers(HttpMethod.POST, "/cadastro").permitAll();
                     authorize.anyRequest().authenticated();
                 }).formLogin(form -> form
                         .loginPage("/login")
+                        .defaultSuccessUrl("/")
                         .permitAll())
                 .exceptionHandling((exception) -> exception.accessDeniedPage("/error/403"));
-
-
         return http.build();
     }
 
@@ -35,6 +34,4 @@ public class SecurityConfig {
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
 }

@@ -33,4 +33,15 @@ public class PacienteController {
         pacienteService.cadastrarDadosPessoais(request);
         return "paciente/cadastroDados";
     }
+
+    @GetMapping("/cadastarFichaTecnica")
+    public String cadastarFichaTecnica() {
+        return "paciente/cadastroFicha";
+    }
+
+    @PostMapping("/cadastarFichaTecnica")
+    public String cadastarFichaTecnicaPOST(@ModelAttribute CadastroDadosPessoaisDTO request) {
+        pacienteService.cadastrarDadosPessoais(request);
+        return "paciente/cadastroFicha";
+    }
 }
