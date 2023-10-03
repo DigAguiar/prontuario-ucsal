@@ -5,6 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+
 @Entity
 public class Pacient {
 
@@ -19,14 +23,19 @@ public class Pacient {
 
     private String nome;
     private String email;
-    private String data_nascimento;
+    private LocalDate data_nascimento;
     private String curso;
     private String colaborador;
     private String externo;
+    private String cep;
+    private String endereco;
+    private String cidade;
+    private String bairro;
+    int numero;
     private String contatos;
     private String altura;
-    private String data_atendimento;
-    private String horario_atendimento;
+    private LocalDate data_atendimento;
+    private LocalTime horario_atendimento;
     private String alergias;
     private String pressao_arterial;
     private String temperatura;
@@ -36,11 +45,12 @@ public class Pacient {
     private String comorbidades;
     private String medicacao_em_uso;
     private String evolucao_enfermagem;
-    
-    public Pacient(Integer id, String nome, String email, String data_nascimento, String curso, String colaborador,
-            String externo, String contatos, String altura, String data_atendimento, String horario_atendimento,
-            String alergias, String pressao_arterial, String temperatura, String dor, String saturacao,
-            String glicemia_capilar, String comorbidades, String medicacao_em_uso, String evolucao_enfermagem) {
+
+    public Pacient(Integer id, String nome, String email, LocalDate data_nascimento, String curso, String colaborador, String externo,
+                   String cep, String endereco, String cidade, String bairro, int numero,
+                   String contatos, String altura, LocalDate data_atendimento, LocalTime horario_atendimento, String alergias,
+                   String pressao_arterial, String temperatura, String dor, String saturacao, String glicemia_capilar, String comorbidades, String medicacao_em_uso,
+                   String evolucao_enfermagem) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -48,6 +58,11 @@ public class Pacient {
         this.curso = curso;
         this.colaborador = colaborador;
         this.externo = externo;
+        this.cep = cep;
+        this.endereco = endereco;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.numero = numero;
         this.contatos = contatos;
         this.altura = altura;
         this.data_atendimento = data_atendimento;
@@ -61,6 +76,46 @@ public class Pacient {
         this.comorbidades = comorbidades;
         this.medicacao_em_uso = medicacao_em_uso;
         this.evolucao_enfermagem = evolucao_enfermagem;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public Pacient() {
@@ -194,27 +249,27 @@ public class Pacient {
         this.evolucao_enfermagem = evolucao_enfermagem;
     }
 
-    public String getData_nascimento() {
+    public LocalDate getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(String data_nascimento) {
+    public void setData_nascimento(LocalDate data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 
-    public String getData_atendimento() {
+    public LocalDate getData_atendimento() {
         return data_atendimento;
     }
 
-    public void setData_atendimento(String data_atendimento) {
+    public void setData_atendimento(LocalDate data_atendimento) {
         this.data_atendimento = data_atendimento;
     }
 
-    public String getHorario_atendimento() {
+    public LocalTime getHorario_atendimento() {
         return horario_atendimento;
     }
 
-    public void setHorario_atendimento(String horario_atendimento) {
+    public void setHorario_atendimento(LocalTime horario_atendimento) {
         this.horario_atendimento = horario_atendimento;
     }
 

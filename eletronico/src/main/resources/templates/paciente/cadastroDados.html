@@ -10,6 +10,7 @@
 
     <!-- Incluir os arquivos CSS do Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <style>
     #myHeader {
@@ -41,6 +42,10 @@
 </style>
 
 <body>
+<script th:src="@{assets/inputmask/jquery.inputmask.min.js}"></script>
+<script>
+    $(":input").inputmask();
+</script>
     <header id="myHeader">
         <div class="container">
             <img src="/assets/ucsal.svg" alt="Logo Ucsal" />
@@ -51,7 +56,7 @@
         </div>
     </header>
     <section>
-        <form method="post" action="/cadastro">
+        <form method="post" th:action="@{/cadastarDados}" >
             <center>
                 <p class="title">Dados do Paciente</p>
                 <fieldset>
@@ -66,38 +71,38 @@
                 </fieldset>
                 <fieldset>
                     <div class="col-md-5">
-                        <input placeholder="Telefone" type="text" class="form-control" id="telefone" maxlength="50"
-                            required>
+                        <input placeholder="Telefone" name="telefone" type="text" class="form-control" id="telefone" maxlength="50"
+                               >
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-5">
-                        <input placeholder="Curso" type="text" class="form-control" id="telefone" maxlength="50"
+                        <input placeholder="Curso" name="curso" type="text" class="form-control" id="curso" maxlength="50"
                             required>
                     </div>
                     <label>Data Nascimento</label>
                     <div class="col-md-5">
-                        <input placeholder="Data Nascimento" type="date" class="form-control" id="data_nascimento"
+                        <input placeholder="Data Nascimento" name="data_nascimento" type="date" class="form-control" id="data_nascimento"
                             maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-5">
-                        <input placeholder="Colaborador" type="text" class="form-control" id="Colaborador"
+                        <input placeholder="Colaborador" name="colaborador" type="text" class="form-control" id="colaborador"
                             maxlength="50" required>
                     </div>
                     <div class="col-md-5">
-                        <input placeholder="Externo" type="text" class="form-control" id="Externo" maxlength="50"
+                        <input placeholder="Externo" name="externo" type="text" class="form-control" id="externo" maxlength="50"
                             required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-6">
-                        <input name="cep" id="cep" type="text" class="form-control" placeholder="CEP" maxlength="15"
+                        <input name="cep" id="cep" type="text"  class="form-control" placeholder="cep" maxlength="15"
                             required>
                     </div>
                     <div class="col-md-6">
-                        <input name="local" id="local" type="text" class="form-control" placeholder="Endereço"
+                        <input name="endereco" id="local" type="text" class="form-control" placeholder="endereço"
                             maxlength="50" required>
                     </div>
                 </fieldset>
@@ -109,13 +114,13 @@
                 </fieldset>
                 <fieldset>
                     <div class="col-md-6">
-                        <input name="bairro" id="bairro" type="text" class="form-control" placeholder="Bairro"
+                        <input name="bairro" id="bairro" type="text" class="form-control" placeholder="bairro"
                             maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-2">
-                        <input placeholder="Número" type="text" class="form-control" id="numero" maxlength="50"
+                        <input placeholder="Número" name="numero" type="text" class="form-control" id="numero" maxlength="50"
                             required>
                     </div>
                 </fieldset>

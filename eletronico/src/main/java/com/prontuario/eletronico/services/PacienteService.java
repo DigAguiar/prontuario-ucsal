@@ -45,16 +45,20 @@ public class PacienteService {
         var log = new Log();
         var user = new UserModel();
         var dataAtual = new Date(); // Obtém a data atual
-        SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-        String dataFormatada = formatoData.format(dataAtual); // Formata a data como string
 
-        paciente.setNome("Joao");
-        paciente.setColaborador("TRUE");
-        paciente.setCurso("eng software");
-        paciente.setData_nascimento(dataFormatada);
-        paciente.setData_atendimento(dataFormatada);
-        paciente.setContatos("(71)98686-7971");
-        paciente.setEmail("diogo.ramos@ucsal.edu.br");
+        paciente.setNome(request.name());
+        paciente.setEmail(request.email());
+        paciente.setContatos(request.telefone());
+        paciente.setData_nascimento(request.data_nascimento());
+        paciente.setColaborador(request.colaborador());
+        paciente.setExterno(request.externo());
+        paciente.setCep(request.cep());
+        paciente.setEndereco(request.endereco());
+        paciente.setCidade(request.cidade());
+        paciente.setBairro(request.bairro());
+        paciente.setNumero(request.numero());
+        paciente.setData_atendimento(request.data());
+        paciente.setHorario_atendimento(request.hora());
         paciente = pacienteRepository.save(paciente);
 
         // send email
