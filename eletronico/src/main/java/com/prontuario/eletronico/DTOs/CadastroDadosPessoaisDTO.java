@@ -8,10 +8,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public record CadastroDadosPessoaisDTO
-        ( Integer id,
+        (
           String name,
           String email,
-          String telefone,
+          String contato,
+          String curso,
           LocalDate data_nascimento,
           String colaborador,
           String externo,

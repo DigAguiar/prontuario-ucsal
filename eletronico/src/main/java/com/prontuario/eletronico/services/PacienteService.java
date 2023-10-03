@@ -48,7 +48,8 @@ public class PacienteService {
 
         paciente.setNome(request.name());
         paciente.setEmail(request.email());
-        paciente.setContatos(request.telefone());
+        paciente.setContatos(request.contato());
+        paciente.setCurso(request.curso());
         paciente.setData_nascimento(request.data_nascimento());
         paciente.setColaborador(request.colaborador());
         paciente.setExterno(request.externo());

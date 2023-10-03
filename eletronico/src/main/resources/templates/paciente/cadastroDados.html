@@ -60,7 +60,7 @@
             <p class="title">Dados do Paciente</p>
             <fieldset>
                 <div class="col-md-6" style="width: 100%;">
-                    <input placeholder="Nome" name="nome" type="text" class="form-control" id="nome"
+                    <input placeholder="Nome" name="name" type="text" class="form-control" id="nome"
                            style="width: 100%;" maxlength="50" required>
                 </div>
                 <div class="col-md-6">
@@ -72,10 +72,10 @@
             <fieldset style="display: flex; justify-content: space-between; align-items: center;">
                 <div class="col-md-6" style="width: 100%;">
                     <input style="width: 100%;" placeholder="Telefone" type="text" class="form-control"
-                           id="telefone" maxlength="50" required>
+                           id="telefone" name="contato" maxlength="50" required>
                 </div>
                 <div class="col-md-6">
-                    <input placeholder="Curso" type="text" class="form-control" id="telefone" maxlength="50"
+                    <input placeholder="Curso" name="curso" type="text" class="form-control" id="" maxlength="50"
 
                            required>
                 </div>
@@ -88,21 +88,6 @@
                            maxlength="50" required>
                 </div>
             </fieldset>
-            <<<<<<< HEAD
-            <fieldset>
-                <div class="col-md-5">
-                    <input placeholder="Colaborador" name="colaborador" type="text" class="form-control" id="colaborador"
-                           maxlength="50" required>
-                </div>
-                <div class="col-md-5">
-                    <input placeholder="Externo" name="externo" type="text" class="form-control" id="externo" maxlength="50"
-                           required>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div class="col-md-6">
-                    <input name="cep" id="cep" type="text"  class="form-control" placeholder="cep" maxlength="15"
-                    =======
                     <fieldset style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="col-md-6">
                             <input placeholder="Colaborador" type="text" class="form-control" id="Colaborador"
@@ -118,16 +103,13 @@
                     <fieldset style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="col-md-6" style="display: flex; align-items: center;">
                             <input style="border-radius: 15px 0 0 15px;" name="cep" id="cep" type="text" class="form-control" placeholder="CEP" maxlength="15"
-                            >>>>>>> 160e2d299ba4d73273be9116793f09d5e5932249
                             required>
                             <button id="btn-cep" style=" border-radius: 0 15px 15px 0; height:38px; margin-top: 10px;">Buscar</button>
                         </div>
                         <div class="col-md-6">
-                            <<<<<<< HEAD
-                            <input name="endereco" id="local" type="text" class="form-control" placeholder="endereço"
-                            =======
+
                             <input name="local" id="local" type="text" class="form-control" placeholder="Rua"
-                            >>>>>>> 160e2d299ba4d73273be9116793f09d5e5932249
+
                             maxlength="50" required>
                         </div>
                     </fieldset>
@@ -136,30 +118,15 @@
                             <input name="cidade" id="cidade" type="text" class="form-control" placeholder="Cidade"
                                    maxlength="50" required>
                         </div>
-                        <<<<<<< HEAD
-                    </fieldset>
-                    <fieldset>
-                        <div class="col-md-6">
-                            <input name="bairro" id="bairro" type="text" class="form-control" placeholder="bairro"
-                                   maxlength="50" required>
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <div class="col-md-2">
-                            <input placeholder="Número" name="numero" type="text" class="form-control" id="numero" maxlength="50"
-                                   required>
-                        </div>
-                    </fieldset>
-                    =======
                     <div class="col-md-6" style="padding: 0 0px 0 19px;">
                         <input name="bairro" id="bairro" type="text" class="form-control" placeholder="Bairro"
                                maxlength="50" required>
                     </div>
             </fieldset>
             <div class="col-md-3">
-                <input placeholder="Número" type="text" class="form-control" id="numero" maxlength="50" required>
+                <input placeholder="Número" name="numero" type="number" class="form-control" id="numero" maxlength="50" required>
             </div>
-            >>>>>>> 160e2d299ba4d73273be9116793f09d5e5932249
+
             <p class="title">Dados do Agendamento</p>
             <div id="emailHelp" class="form-text">Serão confimardos agendamentos apenas de Segunda à Sábado das
                 8:00 às 17:00</div>

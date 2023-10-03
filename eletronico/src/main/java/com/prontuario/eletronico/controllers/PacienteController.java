@@ -31,7 +31,7 @@ public class PacienteController {
     @PostMapping("/cadastarDados")
     public String cadastarDadosPessoaisPOST(@ModelAttribute CadastroDadosPessoaisDTO request) {
         pacienteService.cadastrarDadosPessoais(request);
-        return "paciente/cadastroDados";
+        return "redirect:/";
     }
 
     @GetMapping("/cadastarFichaTecnica")
