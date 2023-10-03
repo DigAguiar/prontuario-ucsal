@@ -7,14 +7,13 @@
     <title>Formulário de Cadastro</title>
     <link rel="stylesheet" href="/css/form.css">
     <link rel="stylesheet" href="/css/header.css" />
-
     <!-- Incluir os arquivos CSS do Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 </head>
 <style>
     #myHeader {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
@@ -28,7 +27,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 20px;
+        /* padding: 10px 20px; */
     }
 
     .small-container {
@@ -46,116 +45,196 @@
 <script>
     $(":input").inputmask();
 </script>
-    <header id="myHeader">
-        <div class="container">
-            <img src="/assets/ucsal.svg" alt="Logo Ucsal" />
-            <div class="small-container">
-                <img src="/assets/bell.svg" alt="Sino Notificação" width="30" height="30" />
-                <img src="/assets/profile.svg" alt="Perfil" width="50" height="50" />
-            </div>
+<header id="myHeader">
+    <div class="container">
+        <img src="/assets/ucsal.svg" alt="Logo Ucsal" />
+        <div class="small-container">
+            <img src="/assets/bell.svg" alt="Sino Notificação" width="30" height="30" />
+            <img src="/assets/profile.svg" alt="Perfil" width="50" height="50" />
         </div>
-    </header>
-    <section>
-        <form method="post" th:action="@{/cadastarDados}" >
-            <center>
-                <p class="title">Dados do Paciente</p>
-                <fieldset>
-                    <div class="col-md-6">
-                        <input placeholder="Nome" name="nome" type="text" class="form-control" id="nome" maxlength="50"
-                            required>
-                    </div>
-                    <div class="col-md-6">
-                        <input placeholder="Email" name="email" type="email" class="form-control" id="email"
-                            maxlength="50" required>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="col-md-5">
-                        <input placeholder="Telefone" name="telefone" type="text" class="form-control" id="telefone" maxlength="50"
-                               >
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="col-md-5">
-                        <input placeholder="Curso" name="curso" type="text" class="form-control" id="curso" maxlength="50"
-                            required>
-                    </div>
-                    <label>Data Nascimento</label>
-                    <div class="col-md-5">
-                        <input placeholder="Data Nascimento" name="data_nascimento" type="date" class="form-control" id="data_nascimento"
-                            maxlength="50" required>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="col-md-5">
-                        <input placeholder="Colaborador" name="colaborador" type="text" class="form-control" id="colaborador"
-                            maxlength="50" required>
-                    </div>
-                    <div class="col-md-5">
-                        <input placeholder="Externo" name="externo" type="text" class="form-control" id="externo" maxlength="50"
-                            required>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="col-md-6">
-                        <input name="cep" id="cep" type="text"  class="form-control" placeholder="cep" maxlength="15"
-                            required>
-                    </div>
-                    <div class="col-md-6">
-                        <input name="endereco" id="local" type="text" class="form-control" placeholder="endereço"
-                            maxlength="50" required>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="col-md-6">
-                        <input name="cidade" id="cidade" type="text" class="form-control" placeholder="cidade"
-                            maxlength="50" required>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="col-md-6">
-                        <input name="bairro" id="bairro" type="text" class="form-control" placeholder="bairro"
-                            maxlength="50" required>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="col-md-2">
-                        <input placeholder="Número" name="numero" type="text" class="form-control" id="numero" maxlength="50"
-                            required>
-                    </div>
-                </fieldset>
-                <p class="title">Dados do Agendamento</p>
-                <div id="emailHelp" class="form-text">Serão confimardos agendamentos apenas de Segunda à Sábado das
-                    8:00 às 17:00</div>
-                <fieldset>
-                    <div id="container" class="col-md-4">
-                        <label for="formGroupExampleInput2" class="form-label">Data</label>
-                        <input name="data" type="date" class="form-control" id="data" required>
-                    </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div id="container" class="col-md-2">
-                        <label for="formGroupExampleInput2" class="form-label">Hora</label>
-                        <input name="hora" type="time" class="form-control" id="hora" required>
-                    </div>
-                </fieldset>
+    </div>
+</header>
+<section>
+    <form method="post" th:action="@{/cadastarDados}" >
+        <center>
+            <p class="title">Dados do Paciente</p>
+            <fieldset>
+                <div class="col-md-6" style="width: 100%;">
+                    <input placeholder="Nome" name="nome" type="text" class="form-control" id="nome"
+                           style="width: 100%;" maxlength="50" required>
+                </div>
+                <div class="col-md-6">
+                    <input placeholder="Email" name="email" type="email" class="form-control" id="email"
+                           maxlength="50" required>
+                </div>
+            </fieldset>
 
-                <fieldset>
-                    <div>
-                        <button id="bt" type="submit" class="btn" onclick="complete()">Agendar</button>
-                    </div>
-                    <!-- <div class="alert alert-danger" role="alert" th:if="${msg}"> <strong th:text="${msg}"></strong> -->
-                    </div>
-                </fieldset>
-            </center>
-        </form>
-    </section>
+            <fieldset style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="col-md-6" style="width: 100%;">
+                    <input style="width: 100%;" placeholder="Telefone" type="text" class="form-control"
+                           id="telefone" maxlength="50" required>
+                </div>
+                <div class="col-md-6">
+                    <input placeholder="Curso" type="text" class="form-control" id="telefone" maxlength="50"
 
-    <!-- Incluir os arquivos JavaScript do Bootstrap (opcional) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                           required>
+                </div>
+            </fieldset>
+            <fieldset
+                    style="display: flex; justify-content: space-between; align-items: start; flex-direction: column; margin: 15px 0px;">
+                <label style="padding: 0 15px;">Data De Nascimento</label>
+                <div class="col-md-5">
+                    <input placeholder="Data Nascimento" name="data_nascimento" type="date" class="form-control" id="data_nascimento"
+                           maxlength="50" required>
+                </div>
+            </fieldset>
+            <<<<<<< HEAD
+            <fieldset>
+                <div class="col-md-5">
+                    <input placeholder="Colaborador" name="colaborador" type="text" class="form-control" id="colaborador"
+                           maxlength="50" required>
+                </div>
+                <div class="col-md-5">
+                    <input placeholder="Externo" name="externo" type="text" class="form-control" id="externo" maxlength="50"
+                           required>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="col-md-6">
+                    <input name="cep" id="cep" type="text"  class="form-control" placeholder="cep" maxlength="15"
+                    =======
+                    <fieldset style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="col-md-6">
+                            <input placeholder="Colaborador" type="text" class="form-control" id="Colaborador"
+                                   maxlength="50" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input placeholder="Externo" type="text" class="form-control" id="Externo" maxlength="50"
+                                   required>
+                        </div>
+                    </fieldset>
+                    <p class="title" style="font-size: 18px !important; margin: 0; margin-top: 15px; text-align: start;">
+                        Endereço</p>
+                    <fieldset style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="col-md-6" style="display: flex; align-items: center;">
+                            <input style="border-radius: 15px 0 0 15px;" name="cep" id="cep" type="text" class="form-control" placeholder="CEP" maxlength="15"
+                            >>>>>>> 160e2d299ba4d73273be9116793f09d5e5932249
+                            required>
+                            <button id="btn-cep" style=" border-radius: 0 15px 15px 0; height:38px; margin-top: 10px;">Buscar</button>
+                        </div>
+                        <div class="col-md-6">
+                            <<<<<<< HEAD
+                            <input name="endereco" id="local" type="text" class="form-control" placeholder="endereço"
+                            =======
+                            <input name="local" id="local" type="text" class="form-control" placeholder="Rua"
+                            >>>>>>> 160e2d299ba4d73273be9116793f09d5e5932249
+                            maxlength="50" required>
+                        </div>
+                    </fieldset>
+                    <fieldset style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="col-md-6" style="padding: 0 14px 0 7.5px;">
+                            <input name="cidade" id="cidade" type="text" class="form-control" placeholder="Cidade"
+                                   maxlength="50" required>
+                        </div>
+                        <<<<<<< HEAD
+                    </fieldset>
+                    <fieldset>
+                        <div class="col-md-6">
+                            <input name="bairro" id="bairro" type="text" class="form-control" placeholder="bairro"
+                                   maxlength="50" required>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="col-md-2">
+                            <input placeholder="Número" name="numero" type="text" class="form-control" id="numero" maxlength="50"
+                                   required>
+                        </div>
+                    </fieldset>
+                    =======
+                    <div class="col-md-6" style="padding: 0 0px 0 19px;">
+                        <input name="bairro" id="bairro" type="text" class="form-control" placeholder="Bairro"
+                               maxlength="50" required>
+                    </div>
+            </fieldset>
+            <div class="col-md-3">
+                <input placeholder="Número" type="text" class="form-control" id="numero" maxlength="50" required>
+            </div>
+            >>>>>>> 160e2d299ba4d73273be9116793f09d5e5932249
+            <p class="title">Dados do Agendamento</p>
+            <div id="emailHelp" class="form-text">Serão confimardos agendamentos apenas de Segunda à Sábado das
+                8:00 às 17:00</div>
+            <fieldset>
+                <div id="container" class="col-md-4">
+                    <label for="formGroupExampleInput2" class="form-label">Data</label>
+                    <input name="data" type="date" class="form-control" id="data" required>
+                </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div id="container" class="col-md-3">
+                    <label for="formGroupExampleInput2" class="form-label">Hora</label>
+                    <input name="hora" type="time" class="form-control" id="hora" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div>
+                    <button id="bt" type="submit" class="btn" onclick="complete()">Agendar</button>
+                </div>
+                <!-- <div class="alert alert-danger" role="alert" th:if="${msg}"> <strong th:text="${msg}"></strong> -->
+                </div>
+            </fieldset>
+        </center>
+    </form>
+</section>
+
+<!-- Incluir os arquivos JavaScript do Bootstrap (opcional) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    const inputCep = document.getElementById('cep');
+    const cidade = document.getElementById('cidade');
+    const bairro = document.getElementById('bairro');
+    const local = document.getElementById('local');
+    const cep = document.getElementById('cep');
+    const btnCep = document.getElementById('btn-cep');
+
+    btnCep.addEventListener('click', (e) => {
+        e.preventDefault();
+        buscaCep(cep.value);
+
+    })
+    function buscaCep(cep) {
+        // Verifica se o CEP possui o formato correto (XXXXXXXX ou XXXXX-XXX)
+        const cepFormatado = cep.replace(/\D/g, '');
+
+        if (cepFormatado.length !== 8) {
+            console.error('CEP inválido. O CEP deve conter 8 dígitos.');
+            return;
+        }
+
+        // URL da API ViaCEP
+        const apiUrl = `https://viacep.com.br/ws/${cepFormatado}/json/`;
+
+        // Faz a requisição HTTP usando o método fetch
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.erro) {
+                    console.error('CEP não encontrado.');
+                } else {
+                    cidade.value = data.localidade;
+                    bairro.value = data.bairro;
+                    local.value = data.logradouro;
+                }
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro ao buscar o CEP:', error);
+            });
+    }
+</script>
 </body>
 
 </html>

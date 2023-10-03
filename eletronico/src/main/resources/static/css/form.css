@@ -50,6 +50,7 @@ section {
 	border-radius: 10px;
 	box-shadow: 5px 5px 15px;
 	max-width: 70vw;
+    margin: 150px 0;
 		
 }
 section img {
@@ -171,4 +172,8 @@ section img {
 		width: 100%;
 		margin-left: 0;
 	}
+}
+
+.form-control {
+    width: 100% !important;
 }
