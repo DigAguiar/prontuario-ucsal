@@ -35,6 +35,11 @@ public class PacienteService {
     @Autowired
     private EmailService emailService;
 
+    public Pacient findPacientBy (int id) {
+        return pacienteRepository.getReferenceById(id);
+    }
+
+
     public List<Pacient> findAll() {
         var lista = pacienteRepository.findAll();
         return lista;
@@ -76,5 +81,23 @@ public class PacienteService {
         log.setAction("criar dados pessoais");
         logRepository.save(log);
     }
+    public void cadastrarDadosFichaTecnica (CadastroDadosPessoaisDTO request, Pacient paciente) {
+        var log = new Log();
+        var user = new UserModel();
+        var dataAtual = new Date(); // Obtém a data atual
+
+        paciente.setAltura(request.altura());
+        paciente.setAlergias(request.alergia());
+        paciente.setPressao_arterial(request.pressao_arterial());
+        paciente.setTemperatura(request.temperatura());
+        paciente.setDor(request.dor());
+        paciente.setSaturacao(request.saturacao());
+        paciente.setGlicemia_capilar(request.glicemia_capilar());
+        paciente.setComorbidades(request.comorbidades());
+
+        pacienteRepository.save(paciente);
+
+    }
+
 
 }

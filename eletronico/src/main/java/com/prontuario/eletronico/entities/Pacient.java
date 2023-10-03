@@ -33,9 +33,9 @@ public class Pacient {
     private String bairro;
     int numero;
     private String contatos;
-    private String altura;
     private LocalDate data_atendimento;
     private LocalTime horario_atendimento;
+    private String altura;
     private String alergias;
     private String pressao_arterial;
     private String temperatura;
