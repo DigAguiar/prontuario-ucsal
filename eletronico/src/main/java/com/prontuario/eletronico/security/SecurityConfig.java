@@ -18,9 +18,9 @@ public class SecurityConfig {
         http.csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((authorize) -> {
                     authorize.requestMatchers("/cadastroUser").hasRole("admin");
+                    authorize.requestMatchers(HttpMethod.POST, "/cadastroUser").hasRole("admin");
                     authorize.requestMatchers("/css/**").permitAll();
                     authorize.requestMatchers("/assets/**").permitAll();
-                    authorize.requestMatchers(HttpMethod.POST, "/cadastro").permitAll();
                     authorize.anyRequest().authenticated();
                 }).formLogin(form -> form
                         .loginPage("/login")
