@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.prontuario.eletronico.DTOs.CadastroDadosPessoaisDTO;
+import com.prontuario.eletronico.entities.Pacient;
 import com.prontuario.eletronico.services.PacienteService;
 
 @Controller
@@ -43,5 +45,17 @@ public class PacienteController {
     public String cadastarFichaTecnicaPOST(@ModelAttribute CadastroDadosPessoaisDTO request) {
         pacienteService.cadastrarDadosPessoais(request);
         return "paciente/cadastroFicha";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deletePaciente(@PathVariable("id") Integer id) {
+        pacienteService.deleteById(id);
+        return "redirect:/";
+    }
+
+    @PostMapping("/update")
+    public String updatePaciente(Pacient paciente) {
+        pacienteService.cadastrarPaciente(paciente);
+        return "redirect:/";
     }
 }

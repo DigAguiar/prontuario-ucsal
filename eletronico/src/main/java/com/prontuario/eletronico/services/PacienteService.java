@@ -1,7 +1,6 @@
 package com.prontuario.eletronico.services;
 
 import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +74,37 @@ public class PacienteService {
         log.setIdPaciente(paciente.getId());
         log.setAction("criar dados pessoais");
         logRepository.save(log);
+    }
+
+    public void cadastrarPaciente(Pacient request) {
+        var paciente = new Pacient();
+        var log = new Log();
+        var user = new UserModel();
+        var dataAtual = new Date(); // Obtém a data atual
+
+        paciente = pacienteRepository.save(request);
+
+        // send email
+        emailService.sendEmail(paciente);
+
+        // userLogged?
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
+        user = userRepository.findByEmail(username).get();
+
+        log.setIdUser(user.getId());
+        log.setIdPaciente(paciente.getId());
+        log.setAction("criar dados pessoais");
+        logRepository.save(log);
+    }
+
+    public void deleteById(Integer id) {
+        pacienteRepository.deleteById(id);
+    }
+
+    public Pacient findById(Integer id) {
+        return pacienteRepository.findById(id).get();
     }
 
 }

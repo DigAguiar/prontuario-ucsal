@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Entity
 public class Pacient {
@@ -46,11 +45,13 @@ public class Pacient {
     private String medicacao_em_uso;
     private String evolucao_enfermagem;
 
-    public Pacient(Integer id, String nome, String email, LocalDate data_nascimento, String curso, String colaborador, String externo,
-                   String cep, String endereco, String cidade, String bairro, int numero,
-                   String contatos, String altura, LocalDate data_atendimento, LocalTime horario_atendimento, String alergias,
-                   String pressao_arterial, String temperatura, String dor, String saturacao, String glicemia_capilar, String comorbidades, String medicacao_em_uso,
-                   String evolucao_enfermagem) {
+    public Pacient(Integer id, String nome, String email, LocalDate data_nascimento, String curso, String colaborador,
+            String externo,
+            String cep, String endereco, String cidade, String bairro, int numero,
+            String contatos, String altura, LocalDate data_atendimento, LocalTime horario_atendimento, String alergias,
+            String pressao_arterial, String temperatura, String dor, String saturacao, String glicemia_capilar,
+            String comorbidades, String medicacao_em_uso,
+            String evolucao_enfermagem) {
         this.id = id;
         this.nome = nome;
         this.email = email;
