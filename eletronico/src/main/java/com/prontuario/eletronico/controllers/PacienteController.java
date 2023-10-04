@@ -23,8 +23,10 @@ public class PacienteController {
     public String listarPacientes(Model model) {
         var listaPacientes = pacienteService.findAll();
         model.addAttribute("pacientes", listaPacientes);
+
         return "index";
     }
+
 
     @GetMapping("/cadastarDados")
     public String cadastarDadosPessoais() {
@@ -36,7 +38,6 @@ public class PacienteController {
         pacienteService.cadastrarDadosPessoais(request);
         return "redirect:/";
     }
-
 
     @PostMapping("/cadastarFichaTecnica")
     public String cadastarFichaTecnicaPOST(@ModelAttribute CadastroDadosPessoaisDTO request) {
@@ -55,19 +56,18 @@ public class PacienteController {
         pacienteService.cadastrarPaciente(paciente);
         return "redirect:/";
     }
-    
+
     @GetMapping("/cadastarFichaTecnica/{id}")
     public String cadastarFichaTecnica(Model model, @PathVariable int id) {
-        model.addAttribute("id",id);
+        model.addAttribute("id", id);
         return "paciente/cadastroFicha";
     }
 
     @PostMapping("/cadastroFicha/{id}")
-    public String preencherFichaTecnica (@PathVariable int id, @ModelAttribute CadastroDadosFichaTecnicaDTO request) {
-       Pacient p = pacienteService.findPacientBy(id);
-       pacienteService.cadastrarDadosFichaTecnica(request,p);
-       return "redirect:/";
+    public String preencherFichaTecnica(@PathVariable int id, @ModelAttribute CadastroDadosFichaTecnicaDTO request) {
+        Pacient p = pacienteService.findPacientBy(id);
+        pacienteService.cadastrarDadosFichaTecnica(request, p);
+        return "redirect:/";
     }
-
 
 }
