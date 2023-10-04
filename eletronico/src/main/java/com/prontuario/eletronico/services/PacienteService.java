@@ -139,5 +139,4 @@ public class PacienteService {
     public Pacient findById(Integer id) {
         return pacienteRepository.findById(id).get();
     }
-
 }
