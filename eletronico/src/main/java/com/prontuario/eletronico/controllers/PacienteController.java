@@ -1,5 +1,7 @@
 package com.prontuario.eletronico.controllers;
 
+import com.prontuario.eletronico.DTOs.CadastroDadosFichaTecnicaDTO;
+import com.prontuario.eletronico.entities.Pacient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,10 +37,6 @@ public class PacienteController {
         return "redirect:/";
     }
 
-    @GetMapping("/cadastarFichaTecnica")
-    public String cadastarFichaTecnica() {
-        return "paciente/cadastroFicha";
-    }
 
     @PostMapping("/cadastarFichaTecnica")
     public String cadastarFichaTecnicaPOST(@ModelAttribute CadastroDadosPessoaisDTO request) {
@@ -46,12 +44,20 @@ public class PacienteController {
         return "paciente/cadastroFicha";
     }
 
-    // Construir controllers para receber o site com o ID na url, e então salvar o restante as info
-//    @GetMapping("cadastroFicha={id}")
-//    public String preencherFichaTecnica (@PathVariable int id) {
-//       var p = pacienteService.findPacientBy(id);
-//       pacienteService.cadastrarDadosFichaTecnica(p);
-//    }
+    @GetMapping("/cadastarFichaTecnica/{id}")
+    public String cadastarFichaTecnica(Model model, @PathVariable int id) {
+        model.addAttribute("id",id);
+        return "paciente/cadastroFicha";
+    }
+
+//     Construir controllers para receber o site com o ID na url, e então salvar o restante as info
+    @PostMapping("/cadastroFicha/{id}")
+    public String preencherFichaTecnica (@PathVariable int id, @ModelAttribute CadastroDadosFichaTecnicaDTO request) {
+
+       Pacient p = pacienteService.findPacientBy(id);
+       pacienteService.cadastrarDadosFichaTecnica(request,p);
+       return "redirect:/";
+    }
 
 
 }

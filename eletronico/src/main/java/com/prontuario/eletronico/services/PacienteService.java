@@ -4,6 +4,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import com.prontuario.eletronico.DTOs.CadastroDadosFichaTecnicaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -81,7 +82,7 @@ public class PacienteService {
         log.setAction("criar dados pessoais");
         logRepository.save(log);
     }
-    public void cadastrarDadosFichaTecnica (CadastroDadosPessoaisDTO request, Pacient paciente) {
+    public void cadastrarDadosFichaTecnica (CadastroDadosFichaTecnicaDTO request, Pacient paciente) {
         var log = new Log();
         var user = new UserModel();
         var dataAtual = new Date(); // Obtém a data atual
@@ -97,6 +98,15 @@ public class PacienteService {
 
         pacienteRepository.save(paciente);
 
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
+        user = userRepository.findByEmail(username).get();
+
+        log.setIdUser(user.getId());
+        log.setIdPaciente(paciente.getId());
+        log.setAction("criar dados pessoais");
+        logRepository.save(log);
     }
 
 
