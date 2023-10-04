@@ -59,8 +59,9 @@ public class PacienteController {
         return "redirect:/";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/updatePaciente")
     public String updatePaciente(Pacient paciente) {
+        System.out.println(paciente.toString());
         pacienteService.cadastrarPaciente(paciente);
         return "redirect:/";
     }

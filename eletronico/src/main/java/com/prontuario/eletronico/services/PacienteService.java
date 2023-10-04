@@ -114,7 +114,9 @@ public class PacienteService {
         var user = new UserModel();
         var dataAtual = new Date(); // Obtém a data atual
 
-        paciente = pacienteRepository.save(request);
+        paciente = pacienteRepository.findById(request.getId()).get();
+        paciente = request;
+        pacienteRepository.save(paciente);
 
         // send email
         emailService.sendEmail(paciente);
@@ -127,7 +129,7 @@ public class PacienteService {
 
         log.setIdUser(user.getId());
         log.setIdPaciente(paciente.getId());
-        log.setAction("criar dados pessoais");
+        log.setAction("update paciente");
         logRepository.save(log);
     }
 

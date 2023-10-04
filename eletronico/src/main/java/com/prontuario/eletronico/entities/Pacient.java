@@ -78,7 +78,7 @@ public class Pacient {
         this.medicacao_em_uso = medicacao_em_uso;
         this.evolucao_enfermagem = evolucao_enfermagem;
     }
-
+    
     public String getCep() {
         return cep;
     }
@@ -281,4 +281,18 @@ public class Pacient {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Pacient [id=" + id + ", nome=" + nome + ", email=" + email + ", data_nascimento=" + data_nascimento
+                + ", curso=" + curso + ", colaborador=" + colaborador + ", externo=" + externo + ", cep=" + cep
+                + ", endereco=" + endereco + ", cidade=" + cidade + ", bairro=" + bairro + ", numero=" + numero
+                + ", contatos=" + contatos + ", data_atendimento=" + data_atendimento + ", horario_atendimento="
+                + horario_atendimento + ", altura=" + altura + ", alergias=" + alergias + ", pressao_arterial="
+                + pressao_arterial + ", temperatura=" + temperatura + ", dor=" + dor + ", saturacao=" + saturacao
+                + ", glicemia_capilar=" + glicemia_capilar + ", comorbidades=" + comorbidades + ", medicacao_em_uso="
+                + medicacao_em_uso + ", evolucao_enfermagem=" + evolucao_enfermagem + "]";
+    }
+
+    
 }

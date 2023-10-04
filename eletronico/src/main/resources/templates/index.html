@@ -66,7 +66,7 @@
             <td><span th:text="${paciente.data_atendimento}"></span></td>
             <td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${paciente.id})}">Deletar</a></td>
 
-            <td><a class="button-like" th:href="@{/visualizarFicha/{id} (id=${paciente.id})}" >Visualizar Ficha</a></td>
+            <td><a class="button-like" th:href="@{/visualizarFicha/{id} (id=${paciente.id})}">Visualizar Ficha</a></td>
             <td><button th:onclick="|editar(${paciente.id})|" type="button" class="btn btn-primary"
                 data-bs-toggle="modal" data-bs-target="#exampleModalLong">
                 Editar
@@ -92,38 +92,44 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
-              <input class="form-control" type="text" placeholder="Nome" id="nome">
-              <input class="form-control" type="text" placeholder="Email" id="email">
-              <input class="form-control" type="text" placeholder="Telefone" id="telefone">
-              <input class="form-control" type="text" placeholder="Curso" id="curso">
-              <input class="form-control" type="text" placeholder="Data Nascimento" id="data_nascimento">
-              <input class="form-control" type="text" placeholder="Colaborador" id="colaborador">
-              <input class="form-control" type="text" placeholder="Externo" id="externo">
-              <input class="form-control" type="text" placeholder="CEP" id="cep">
-              <input class="form-control" type="text" placeholder="Rua" id="rua">
-              <input class="form-control" type="text" placeholder="Cidade" id="cidade">
-              <input class="form-control" type="text" placeholder="Bairro" id="bairro">
-              <input class="form-control" type="text" placeholder="Numero" id="numero">
-              <input class="form-control" type="text" placeholder="Data Agendamento" id="data_agendamento">
-              <input class="form-control" type="text" placeholder="Hora Agendamento" id="hora_agendamento">
-              <input class="form-control" type="text" placeholder="Alergias" id="alergias">
+            <form action="/updatePaciente" method="post">
+              <input class="form-control" type="text" placeholder="id" name="id" id="id">
+              <input class="form-control" type="text" placeholder="Nome" name="nome" id="nome">
+              <input class="form-control" type="text" placeholder="Email" name="email" id="email">
+              <input class="form-control" type="text" placeholder="Telefone" name="telefone" id="telefone">
+              <input class="form-control" type="text" placeholder="Curso" name="curso" id="curso">
+              <input class="form-control" type="text" placeholder="Data Nascimento" name="data_nascimento"
+                id="data_nascimento">
+              <input class="form-control" type="text" placeholder="Colaborador" name="colaborador" id="colaborador">
+              <input class="form-control" type="text" placeholder="Externo" name="externo" id="externo">
+              <input class="form-control" type="text" placeholder="CEP" name="cep" id="cep">
+              <input class="form-control" type="text" placeholder="Rua" name="rua" id="rua">
+              <input class="form-control" type="text" placeholder="Cidade" name="cidade" id="cidade">
+              <input class="form-control" type="text" placeholder="Bairro" name="bairro" id="bairro">
+              <input class="form-control" type="text" placeholder="Numero" name="numero" id="numero">
+              <input class="form-control" type="text" placeholder="Data Agendamento" name="data_agendamento"
+                id="data_agendamento">
+              <input class="form-control" type="text" placeholder="Hora Agendamento" name="hora_agendamento"
+                id="hora_agendamento">
+              <input class="form-control" type="text" placeholder="Alergias" name="alergias" id="alergias">
               <!-- <input class="form-control" type="text" placeholder="Exames Fisicos" th:field="*{pressao_arterial}"> -->
               <!-- <input class="form-control" type="text" placeholder="Frequencia Respiratoria" th:field="*{}"> -->
-              <input class="form-control" type="text" placeholder="Pressao Arterial" id="pressao_arterial">
+              <input class="form-control" type="text" placeholder="Pressao Arterial" name="pressao_arterial"
+                id="pressao_arterial">
               <!-- <input class="form-control" type="text" placeholder="Frequencia Cardiaca" th:field="*{frequencia}"> -->
-              <input class="form-control" type="text" placeholder="Temperatura" id="temperatura">
-              <input class="form-control" type="text" placeholder="Saturacao" id="saturacao">
-              <input class="form-control" type="text" placeholder="Glicemia Capilar" id="glicemia_capilar">
-              <input class="form-control" type="text" placeholder="Dor" id="dor">
-              <input class="form-control" type="text" placeholder="Comorbidades" id="comorbidades">
+              <input class="form-control" type="text" placeholder="Temperatura" name="temperatura" id="temperatura">
+              <input class="form-control" type="text" placeholder="Saturacao" name="saturacao" id="saturacao">
+              <input class="form-control" type="text" placeholder="Glicemia Capilar" name="glicemia_capilar"
+                id="glicemia_capilar">
+              <input class="form-control" type="text" placeholder="Dor" name="dor" id="dor">
+              <input class="form-control" type="text" placeholder="Comorbidades" name="comorbidades" id="comorbidades">
 
-            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-primary">Editar</button>
+            <button type="submit" class="btn btn-primary">Editar</button>
           </div>
+          </form>
         </div>
       </div>
     </div>
@@ -144,6 +150,7 @@
 
           console.log(data)
 
+          document.getElementById("id").value = data.id;
           document.getElementById("nome").value = data.nome;
           document.getElementById("email").value = data.email;
           document.getElementById("data_nascimento").value = data.data_nascimento;
