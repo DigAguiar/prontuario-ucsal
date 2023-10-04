@@ -176,4 +176,12 @@ section img {
 
 .form-control {
     width: 100% !important;
+    border-radius: 15px;
+
 }
+
+    #comorbidades{
+        overflow: hidden;
+        height: 160px;
+        width: 100px ;
+    }
