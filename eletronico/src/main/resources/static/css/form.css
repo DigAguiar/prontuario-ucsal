@@ -69,61 +69,7 @@ section img {
         text-transform: uppercase;
         letter-spacing: 2px;
     }
-    
-    #nome{
-        border-radius: 15px;
-    }
-    
-    #email{	
-        border-radius: 15px;
-    }
-    
-    #cep{
-    	margin-top: 10px;
-        border-radius: 15px;
-    }
 
-    #bairro{
-    	margin-top: 10px;
-        border-radius: 15px;
-    }
-
-    #cidade{
-    	margin-top: 10px;
-        border-radius: 15px;
-    }
-
-    #local{
-    	margin-top: 10px;
-        border-radius: 15px;
-        margin-left: 5px;
-    }
-    
-    #telefone{
-    	margin-top: 10px;
-        border-radius: 15px;
-    }
-
-    #numero{
-        margin-top: 10px;
-        border-radius: 15px;
-    }
-    
-    #data{
-        border-radius: 15px;
-    }
-    
-    #hora{
-        border-radius: 15px;
-    }
-    
-    #tipo{
-        border-radius: 15px;
-    }
-    
-    #tamanho{
-        border-radius: 15px;
-    }
 
   	#container{
   		margin-top: 10px;
@@ -185,3 +131,9 @@ section img {
         height: 160px;
         width: 100px ;
     }
+
+	.topright {
+		display: flex;
+		justify-content: left;
+
+	}
