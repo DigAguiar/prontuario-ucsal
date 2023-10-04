@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org%22%3E">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Cadastro</title>
     <link rel="stylesheet" href="/css/form.css">
@@ -51,71 +51,71 @@
         </div>
     </header>
     <section>
-        <form method="post" action="/cadastro">
+        <p>O valor do atributo 'id' é: <span th:text="${id}"></span></p>
+        <form method="post" th:action="@{'/cadastroFicha/' + ${id}}">
+
             <center>
                 <p class="title">Cadastro Ficha Tecnica</p>
                 <fieldset>
                     <div class="col-md-6">
-                        <input placeholder="Alergias" name="nome" type="text" class="form-control" id="nome"
+                        <input placeholder="Alergias" name="alergia" type="text" class="form-control" id="nome"
                             maxlength="50" required>
                     </div>
                     <div class="col-md-6">
-                        <input placeholder="Exames Fisicaos" name="email" type="email" class="form-control" id="email"
+                        <input placeholder="Exames Fisicos" name="exames_fisicos" type="text" class="form-control" id="email"
                             maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-5">
-                        <input placeholder="Altura" type="text" class="form-control" id="telefone" maxlength="50"
+                        <input placeholder="Altura" name="altura" type="text" class="form-control" id="telefone" maxlength="50"
                             required>
                     </div>
                 </fieldset>
                 <h3>Sinais vitais</h3>
                 <fieldset>
                     <div class="col-md-6">
-                        <input name="Frequência Respiratória - FR" id="Frequência Respiratória - FR" type="text"
+                        <input name="frequencia_respiratoria" id="Frequência Respiratória - FR" type="text"
                             class="form-control" placeholder="Frequência Respiratória - FR" maxlength="15" required>
                     </div>
                     <div class="col-md-6">
-                        <input name="Pressão Arterial - PA" id="local" type="text" class="form-control"
+                        <input name="pressao_arterial" id="local" type="text" class="form-control"
                             placeholder="Pressão Arterial - PA" maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-6">
-                        <input name="Frequência Cardíaca - FC" id="Frequência Cardíaca - FC" type="text"
+                        <input name="frequencia_cardiaca" id="Frequência Cardíaca - FC" type="text"
                             class="form-control" placeholder="Frequência Cardíaca - FC" maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-6">
-                        <input name="Temperatura" id="Temperatura" type="text" class="form-control"
+                        <input name="temperatura" id="Temperatura" type="text" class="form-control"
                             placeholder="Temperatura" maxlength="50" required>
                     </div>
                     <div class="col-md-6">
-                        <input name="Saturação" id="Saturação" type="text" class="form-control" placeholder="Saturação"
+                        <input name="saturacao" id="Saturação" type="text" class="form-control" placeholder="Saturação"
                             maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-2">
-                        <input placeholder="Dor" type="text" class="form-control" id="Dor" maxlength="50" required>
+                        <input placeholder="Dor" name="dor" type="text" class="form-control" id="dor" maxlength="50" required>
                     </div>
                     <div class="col-md-2">
-                        <input placeholder="Glicemia Capilar" type="text" class="form-control" id="Dor" maxlength="50" required>
+                        <input placeholder="Glicemia Capilar" name="glicemia_capilar" type="text" class="form-control" id="Dor" maxlength="50" required>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="col-md-2">
-                        <input placeholder="COMORBIDADES" type="text" class="form-control" id="COMORBIDADES" maxlength="50" required>
+                        <input placeholder="COMORBIDADES" name="comorbidades" type="text" class="form-control" id="COMORBIDADES" maxlength="50" required>
                     </div>
-                    <div class="col-md-2">
-                        <input placeholder="Glicemia Capilar" type="text" class="form-control" id="Glicemia Capilar" maxlength="50" required>
-                    </div>
+
                 </fieldset>
                 <fieldset>
                     <div>
-                        <button id="bt" type="submit" class="btn" onclick="complete()">Agendar</button>
+                        <button id="bt" type="submit" class="btn">Salvar</button>
                     </div>
                     <!-- <div class="alert alert-danger" role="alert" th:if="${msg}"> <strong th:text="${msg}"></strong> -->
                     </div>

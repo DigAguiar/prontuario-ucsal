@@ -1,5 +1,7 @@
 package com.prontuario.eletronico.controllers;
 
+import com.prontuario.eletronico.DTOs.CadastroDadosFichaTecnicaDTO;
+import com.prontuario.eletronico.entities.Pacient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.prontuario.eletronico.DTOs.CadastroDadosPessoaisDTO;
-import com.prontuario.eletronico.entities.Pacient;
 import com.prontuario.eletronico.services.PacienteService;
 
 @Controller
@@ -36,10 +37,6 @@ public class PacienteController {
         return "redirect:/";
     }
 
-    @GetMapping("/cadastarFichaTecnica")
-    public String cadastarFichaTecnica() {
-        return "paciente/cadastroFicha";
-    }
 
     @PostMapping("/cadastarFichaTecnica")
     public String cadastarFichaTecnicaPOST(@ModelAttribute CadastroDadosPessoaisDTO request) {
@@ -58,4 +55,19 @@ public class PacienteController {
         pacienteService.cadastrarPaciente(paciente);
         return "redirect:/";
     }
+    
+    @GetMapping("/cadastarFichaTecnica/{id}")
+    public String cadastarFichaTecnica(Model model, @PathVariable int id) {
+        model.addAttribute("id",id);
+        return "paciente/cadastroFicha";
+    }
+
+    @PostMapping("/cadastroFicha/{id}")
+    public String preencherFichaTecnica (@PathVariable int id, @ModelAttribute CadastroDadosFichaTecnicaDTO request) {
+       Pacient p = pacienteService.findPacientBy(id);
+       pacienteService.cadastrarDadosFichaTecnica(request,p);
+       return "redirect:/";
+    }
+
+
 }

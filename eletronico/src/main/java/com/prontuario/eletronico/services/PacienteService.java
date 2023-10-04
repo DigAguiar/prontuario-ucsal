@@ -3,6 +3,7 @@ package com.prontuario.eletronico.services;
 import java.util.Date;
 import java.util.List;
 
+import com.prontuario.eletronico.DTOs.CadastroDadosFichaTecnicaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,6 +34,11 @@ public class PacienteService {
 
     @Autowired
     private EmailService emailService;
+
+    public Pacient findPacientBy (int id) {
+        return pacienteRepository.getReferenceById(id);
+    }
+
 
     public List<Pacient> findAll() {
         var lista = pacienteRepository.findAll();
@@ -75,6 +81,33 @@ public class PacienteService {
         log.setAction("criar dados pessoais");
         logRepository.save(log);
     }
+    public void cadastrarDadosFichaTecnica (CadastroDadosFichaTecnicaDTO request, Pacient paciente) {
+        var log = new Log();
+        var user = new UserModel();
+        var dataAtual = new Date(); // Obtém a data atual
+
+        paciente.setAltura(request.altura());
+        paciente.setAlergias(request.alergia());
+        paciente.setPressao_arterial(request.pressao_arterial());
+        paciente.setTemperatura(request.temperatura());
+        paciente.setDor(request.dor());
+        paciente.setSaturacao(request.saturacao());
+        paciente.setGlicemia_capilar(request.glicemia_capilar());
+        paciente.setComorbidades(request.comorbidades());
+
+        pacienteRepository.save(paciente);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
+        user = userRepository.findByEmail(username).get();
+
+        log.setIdUser(user.getId());
+        log.setIdPaciente(paciente.getId());
+        log.setAction("criar dados pessoais");
+        logRepository.save(log);
+    }
+
 
     public void cadastrarPaciente(Pacient request) {
         var paciente = new Pacient();
