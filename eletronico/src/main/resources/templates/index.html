@@ -14,7 +14,7 @@
 </head>
 <style>
   .custom-bg-color {
-    background-color: #1F365C; /* Substitua com a cor desejada, por exemplo: #FF5733 */
+    background-color: #1F365C;
   }
 
 </style>
@@ -29,20 +29,25 @@
         <a class="navbar-brand" href="/"><img src="/assets/ucsal.svg" alt="Logo Ucsal" /></a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="btn btn-light" aria-current="page" href="/" >Home</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="/cadastarDados">Cadastro</a>
+            <a class="btn btn-light" href="/cadastarDados">Add Paciente</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Pacientes</a>
           </li>
         </ul>
+
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" maxlength="10px">
           <button class="btn btn-outline-success" type="submit">Search</button>
+          <h4><a href="/logout" class="btn btn-outline-danger">Logout</a></h4>
         </form>
-        <h3><a href="/logout">Logout</a></h3>
+
+
+
     </div>
   </nav>
   <div class="container">
