@@ -35,10 +35,9 @@ public class PacienteService {
     @Autowired
     private EmailService emailService;
 
-    public Pacient findPacientBy (int id) {
+    public Pacient findPacientBy(int id) {
         return pacienteRepository.getReferenceById(id);
     }
-
 
     public List<Pacient> findAll() {
         var lista = pacienteRepository.findAll();
@@ -81,7 +80,8 @@ public class PacienteService {
         log.setAction("criar dados pessoais");
         logRepository.save(log);
     }
-    public void cadastrarDadosFichaTecnica (CadastroDadosFichaTecnicaDTO request, Pacient paciente) {
+
+    public void cadastrarDadosFichaTecnica(CadastroDadosFichaTecnicaDTO request, Pacient paciente) {
         var log = new Log();
         var user = new UserModel();
         var dataAtual = new Date(); // Obtém a data atual
@@ -107,7 +107,6 @@ public class PacienteService {
         log.setAction("criar dados pessoais");
         logRepository.save(log);
     }
-
 
     public void cadastrarPaciente(Pacient request) {
         var paciente = new Pacient();

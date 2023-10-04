@@ -15,9 +15,9 @@ Projeto de Arquitetura de Software voltado para o desenvolvimento de um Prontuá
  - Spring Validation
  - Java mail Sender
  - Thymeleaf
- - maven
- - postgres / beekeper Studio
- - Vscode / IDEA / Eclipse
+ - Maven
+ - PostgreSQL / beekeper Studio
+ - Vscode / IDEA / Eclipse 
 
 ## Sprints
 
@@ -30,6 +30,8 @@ Projeto de Arquitetura de Software voltado para o desenvolvimento de um Prontuá
 ## Requisitos do Sistema 
 
 ## Configure e Execute
+- PostgreSQL instalado e configurado. https://www.postgresql.org/download/
+- 
 
 ## Telas do Sistema
 
