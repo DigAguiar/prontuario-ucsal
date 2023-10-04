@@ -132,8 +132,10 @@ section img {
         width: 100px ;
     }
 
-	.topright {
-		display: flex;
-		justify-content: left;
 
-	}
+	.topright {
+	position: absolute;
+	top: 50%;
+	right: 15px; /* Ajuste conforme necessário */
+	transform: translateY(-50%);
+}
