@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ficha</title>
+</head>
+<body>
+
+    <h1>Ficha Paciente</h1>
+    <p>Informações do Paciente:</p>
+    <p>Nome: <span th:text="${paciente.nome}"></span></p>
+    <p>Email: <span th:text="${paciente.email}"></span></p>
+    <p>Contato: <span th:text="${paciente.contatos}"></span></p>
+    <p>Curso: <span th:text="${paciente.curso}"></span></p>
+    <p>Data de Nascimento: <span th:text="${paciente.data_nascimento}"></span></p>
+    <p>Colaborador: <span th:text="${paciente.colaborador}"></span></p>
+    <p>Externo: <span th:text="${paciente.externo}"></span></p>
+    <p>CEP: <span th:text="${paciente.cep}" ></span> </p>
+    <p>Cidade: <span th:text="${paciente.cidade}"></span></p>
+    <p>Bairro: <span th:text="${paciente.bairro}"></span></p>
+    <p>Rua: <span th:text="${paciente.endereco}"></span></p>
+    <p>Numero da casa: <span th:text="${paciente.numero}"></span></p>
+    <p>Data agendamento: <span th:text="${paciente.data_atendimento}"></span></p>
+    <p>Hora agendamento: <span th:text="${paciente.horario_atendimento}"></span></p>
+    <p>Alergia : <span th:text="${paciente.alergias}"></span></p>
+<!--    <p>Exames fisicos : <span th:text="${paciente.}"></span></p>-->
+    <p>Altura : <span th:text="${paciente.altura}"></span></p>
+    <p>Pressão Arterial : <span th:text="${paciente.pressao_arterial}"></span></p>
+    <p>Temperatura : <span th:text="${paciente.temperatura}"></span></p>
+    <p>Saturação : <span th:text="${paciente.saturacao}"></span></p>
+    <p>Glicemia Capilar : <span th:text="${paciente.glicemia_capilar}"></span></p>
+    <p>Dor : <span th:text="${paciente.dor}"></span></p>
+    <p>Comorbidades : <span th:text="${paciente.comorbidades}"></span></p>
+
+
+
+</body>
+</html>

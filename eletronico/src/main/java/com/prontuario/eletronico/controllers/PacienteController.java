@@ -19,6 +19,14 @@ public class PacienteController {
     @Autowired
     private PacienteService pacienteService;
 
+    @GetMapping("/visualizarFicha/{id}")
+    public String visualizarFicha (@PathVariable int id,Model model) {
+        var paciente = pacienteService.findPacientBy(id);
+        model.addAttribute("paciente",paciente);
+        return "paciente/visualizarFicha";
+    }
+
+
     @GetMapping("/")
     public String listarPacientes(Model model) {
         var listaPacientes = pacienteService.findAll();

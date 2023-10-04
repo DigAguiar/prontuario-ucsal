@@ -71,9 +71,11 @@
             <td><span th:text="${paciente.data_atendimento}"></span></td>
             <td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${paciente.id})}">Deletar</a></td>
             <td><a class="button-like" th:href="@{/cadastarFichaTecnica/{id} (id=${paciente.id})}" >Preencher Ficha</a></td>
+            <td><a class="button-like" th:href="@{/visualizarFicha/{id} (id=${paciente.id})}" >Visualizar Ficha</a></td>
 
             <!-- <td><a class="btn btn-success" th:href="@{/{codigo}(codigo=${agendamento.codigo})}">Editar</a></td> -->
             <!-- <td><a class="btn btn-success" th:href="@{/{codigo}(codigo=${agendamento.codigo})}">Ver mais</a></td> -->
+          </div>
         </tr>
       </tbody>
     </table>

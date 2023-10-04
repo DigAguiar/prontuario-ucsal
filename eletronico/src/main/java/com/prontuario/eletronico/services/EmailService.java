@@ -20,5 +20,6 @@ public class EmailService {
         message.setSubject("Agendamento Confirmado");
         message.setText(paciente.toString());
         emailSender.send(message);
+
     }
 }
