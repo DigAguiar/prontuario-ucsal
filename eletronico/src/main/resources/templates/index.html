@@ -98,8 +98,7 @@
               <input class="form-control" type="text" placeholder="Email" name="email" id="email">
               <input class="form-control" type="text" placeholder="Telefone" name="telefone" id="telefone">
               <input class="form-control" type="text" placeholder="Curso" name="curso" id="curso">
-              <input class="form-control" type="text" placeholder="Data Nascimento" name="data_nascimento"
-                id="data_nascimento">
+              <input class="form-control" type="text" placeholder="Data Nascimento" name="data_nascimento" id="data_nascimento">
               <input class="form-control" type="text" placeholder="Colaborador" name="colaborador" id="colaborador">
               <input class="form-control" type="text" placeholder="Externo" name="externo" id="externo">
               <input class="form-control" type="text" placeholder="CEP" name="cep" id="cep">
@@ -112,11 +111,9 @@
               <input class="form-control" type="text" placeholder="Hora Agendamento" name="hora_agendamento"
                 id="hora_agendamento">
               <input class="form-control" type="text" placeholder="Alergias" name="alergias" id="alergias">
-              <!-- <input class="form-control" type="text" placeholder="Exames Fisicos" th:field="*{pressao_arterial}"> -->
-              <!-- <input class="form-control" type="text" placeholder="Frequencia Respiratoria" th:field="*{}"> -->
+
               <input class="form-control" type="text" placeholder="Pressao Arterial" name="pressao_arterial"
                 id="pressao_arterial">
-              <!-- <input class="form-control" type="text" placeholder="Frequencia Cardiaca" th:field="*{frequencia}"> -->
               <input class="form-control" type="text" placeholder="Temperatura" name="temperatura" id="temperatura">
               <input class="form-control" type="text" placeholder="Saturacao" name="saturacao" id="saturacao">
               <input class="form-control" type="text" placeholder="Glicemia Capilar" name="glicemia_capilar"
@@ -155,10 +152,10 @@
           document.getElementById("email").value = data.email;
           document.getElementById("data_nascimento").value = data.data_nascimento;
           document.getElementById("curso").value = data.curso;
-          document.getElementById("telefone").value = data.contatos;
+          document.getElementById("telefone").value = data.contato;
           document.getElementById("cep").value = data.cep;
-          document.getElementById("data_agendamento").value = data.data_atendimento;
-          document.getElementById("hora_agendamento").value = data.horario_atendimento;
+          document.getElementById("data_agendamento").value = data.data_agendamento;
+          document.getElementById("hora_agendamento").value = data.hora_agendamento;
           document.getElementById("colaborador").value = data.colaborador;
           document.getElementById("cidade").value = data.cidade;
           document.getElementById("externo").value = data.externo;
